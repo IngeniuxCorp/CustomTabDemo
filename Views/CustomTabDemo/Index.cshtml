@@ -1,0 +1,85 @@
+﻿@*Do not use a static model in the custom tab view. Model MUST be dynamic*@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        SEO Title
+                    </th>
+                    <th>
+                        SEO Description
+                    </th>
+                    <th>
+                        SEO SEO Keywords
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var page in Model.PageData)
+                {
+                <tr>
+                    <td>
+                        @page.Id
+                    </td>
+                    <td>
+                        @page.Name
+                    </td>
+                    <td>
+                        @if (page.HasSEOTitle)
+                        {
+                            <i class="bi bi-check-square-fill"></i>
+                        }
+                        else
+                        {
+                            <i class="bi bi-x-square-fill"></i>
+                        }
+                    </td>
+                    <td>
+                        @if (page.HasSEODescription)
+                        {
+                            <i class="bi bi-check-square-fill"></i>
+                        }
+                        else
+                        {
+                            <i class="bi bi-x-square-fill"></i>
+                        }
+                    </td>
+                    <td>
+                        @if (page.HasSEOKeywords)
+                        {
+                            <i class="bi bi-check-square-fill"></i>
+                        }
+                        else
+                        {
+                            <i class="bi bi-x-square-fill"></i>
+                        }
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
